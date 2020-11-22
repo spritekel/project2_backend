@@ -63,6 +63,23 @@ router.patch('/:postId', async (req, res) => {
     }catch(err){message: err};
 });
 
+//upload file post to server
+router.post('/', (req,res) => {
+    console.log(req.file);
+    if(req.file === null) {
+        return res.status(400).json({msg: 'No file uploaded'});
+    }
+    const file = req.files.file;
+    file.mv(`${__dirname}/routes/uploads/${file.name}`, err => {
+        if (err) {
+          console.error(err);
+          return res.status(500).send(err);
+        }
+    
+        res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
+      });
+    });
+
 module.exports = router;
 
 //what he runs in browser to request to backend from frontend
