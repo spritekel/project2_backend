@@ -106,7 +106,7 @@ router.post('/uploads', (req,res) => {
         //console.log("HEY hey from new upload function!!");
         console.log(req.file);
         const {file} = req;
-        //if(file.detectedFileExtension != ".xlsx" || file.detectedFileExtension != ".txt") next(new Error("Invalid file type!"));
+        //if(file.detectedFileExtension != ".xlsx") next(new Error("Invalid file type!"));
         console.log(req.file.originalname);
         console.log(req.file.mimetype);
         const fileName = req.file.originalname;
