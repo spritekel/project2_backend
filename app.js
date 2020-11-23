@@ -25,11 +25,10 @@ app.get('/', (req,res) => {
 });
 
 //connect to db
-//direct connect for now
 mongoose.connect(
     process.env.DB_CONNECTION,
     {useUnifiedTopology: true, useNewUrlParser: true}, 
     () => console.log('Connected to db'));
 
 //How to boot up server
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 5000);
